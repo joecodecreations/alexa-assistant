@@ -11,7 +11,7 @@ app.launch(function(req,res) {
 	greetings(req,res);
 });
 
-app.intent('name',{
+app.intent('who',{
 	"slots":{"NAME":"LITERAL"},
 	"utterances": [
       "my {name is|name's} {names|NAME}", "set my name to {names|NAME}"
