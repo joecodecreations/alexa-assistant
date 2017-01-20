@@ -26,12 +26,14 @@ function(req,res) {
 			if(yourname==req.session('yourname')){
 				console.log("the names are the same");
 				res.say("I actually already knew your name was "+yourname);
+				res.shouldEndSession(false);
 				return;
 	    }
 
 			if(req.session('yourname')!=null && yourname!=req.session('yourname')){
 				console.log("the names are the same");
 				res.say("Wait, I thought you said your name was "+req.session('yourname')+", not "+yourname);
+				res.shouldEndSession(false);
 				return;
 			}
 
@@ -52,7 +54,7 @@ function(req,res) {
 		}
 		res.shouldEndSession(false);
 	}
-	res.shouldEndSession(false);
+
 );
 
 
