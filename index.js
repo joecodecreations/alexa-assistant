@@ -52,7 +52,7 @@ function(req,res) {
 		}
 		res.shouldEndSession(false);
 	}
-
+	res.shouldEndSession(false);
 );
 
 
