@@ -37,23 +37,28 @@ function(req,res) {
 				return;
 			}
 
-			// /* Have they changed their name */
-			// if(changedName(req,res)){
-			// 	return;
-			// }
-
-
 			/* we didn't have a name already */
 			res.session('yourname',yourname); //store the name for use
 			res.say("I will remember your name is "+yourname+" from now on.");
-			//helpfull(req.res);
 		}
 		else {
 			res.reprompt("Sorry, I didn't hear a name. Please tell me your name");
-			res.shouldEndSession(false);
 		}
+
 		res.shouldEndSession(false);
 	}
+
+);
+
+app.intent('best',{
+	
+	"utterances": [
+      "{whos|Who is} {the best|coolest|most amazing} person in the world?"
+    ]
+},
+function(req,res) {
+	   res.say("Thats simple. Michelle is.");
+		 res.shouldEndSession(false);
 
 );
 
@@ -112,7 +117,7 @@ function getTimeOfDay(time){
 	timeofday= '';
 
 	switch(true) {
-	    case (currentHour > 17):
+	    case (currentHour > 18):
 	        timeofday = "evening";
 	        break;
 			case (currentHour > 12):
