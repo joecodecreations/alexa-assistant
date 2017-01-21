@@ -51,7 +51,7 @@ function(req,res) {
 );
 
 app.intent('best',{
-	
+
 	"utterances": [
       "{whos|Who is} {the best|coolest|most amazing} person in the world?"
     ]
@@ -59,6 +59,7 @@ app.intent('best',{
 function(req,res) {
 	   res.say("Thats simple. Michelle is.");
 		 res.shouldEndSession(false);
+}
 
 );
 
