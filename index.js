@@ -53,7 +53,7 @@ function(req,res) {
 app.intent('best',{
 
 	"utterances": [
-      "{whos|Who is} {the best|coolest|most amazing} person in the world?"
+      "{whos|Who is} {the best|coolest|most amazing} person in the world"
     ]
 },
 function(req,res) {
