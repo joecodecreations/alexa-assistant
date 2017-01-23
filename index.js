@@ -3,7 +3,7 @@ var alexa = require('alexa-app');
 // Allow this module to be reloaded by hotswap when changed
 module.change_code = 1;
 
-// Define our pplication
+// Define our application
 var app = new alexa.app('nauvi');
 
 /* What happens during the initial launch of the program */
