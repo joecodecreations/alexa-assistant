@@ -13,9 +13,7 @@ app.launch(function(req,res) {
 
 app.intent('who',{
 	"slots":{"NAME":"LITERAL"},
-	"utterances": [
-      "my {name is|name's} {names|NAME}", "set my name to {names|NAME}"
-    ]
+	"utterances": ["my {name is|name's} {names|NAME}", "set my name to {names|NAME}"]
 },
 function(req,res) {
 		var yourname = req.slot('NAME');
@@ -46,37 +44,21 @@ function(req,res) {
 		}
 
 		res.shouldEndSession(false);
-	}
-
-);
-
-app.intent('best',{
-
-	"utterances": [
-      "{whos|Who is} {the best|coolest|most amazing} person in the world"
-    ]
-},
-function(req,res) {
-	   res.say("Thats simple. Michelle is.");
-		 res.shouldEndSession(false);
-}
-
-);
+});
 
 
-/* Functions */
-
+/* FUNCTIONS  */
 /* DEALING WITH INTRODUCTIONS */
 function greetings(req,res){
 	var currentTimeofDay = getTimeOfDay();
 	var prompt = "Good "+currentTimeofDay;
+
 	if(req.session('yourname')){
 		prompt = prompt+req.session('yourname');
 	}
 	prompt = prompt+". How can I help you today?";
 	res.say(prompt).reprompt("I am waiting on your response").shouldEndSession(false);
 }
-
 
 function helpful(req,res){
 	var prompt = "How can I help you today";
@@ -86,10 +68,8 @@ function helpful(req,res){
 	res.say(prompt).shouldEndSession(false);
 }
 
-
 /* DEALING WITH NAMES  */
-
-/* Do we know the name and they are different  */
+/* Do we know the name and they are different */
 function changedName(req,res){
 	if(req.session('yourname')!=null && yourname != req.session('yourname')){
 		res.say("Have you changed your name? I thought your name was "+req.session("yourname")+" not "+yourname);
@@ -108,7 +88,6 @@ function haveName(req,res){
 		return false;
 	}
 }
-
 
 /* DEALING WITH TIME */
 function getTimeOfDay(time){
@@ -129,8 +108,5 @@ function getTimeOfDay(time){
 	}
 	return(timeofday);
 }
-
-
-
 
 module.exports = app;
